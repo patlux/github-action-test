@@ -1,0 +1,15 @@
+name: main
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Update to Expo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Logging
+        run: |
+          echo "${{toJSON(github.event)}}"
+
