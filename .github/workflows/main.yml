@@ -7,10 +7,16 @@ jobs:
   build:
     name: Update to Expo
     runs-on: ubuntu-latest
+    outputs:
+      GIT_BRANCH: ${{ steps. }}
     steps:
       - uses: actions/checkout@v2
       - name: Logging
         run: |
           echo "${{toJSON(github.event)}}"
-      - name: Test
-        run: echo $GITHUB_HEAD_REF 
+      - name: Github Head Ref
+        run: ${GITHUB_HEAD_REF}
+      - name: Github Ref
+        run: ${GITHUB_REF}
+      - name: Branch
+        run: echo ${GITHUB_HEAD_REF:-$GITHUB_REF}
