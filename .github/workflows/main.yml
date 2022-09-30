@@ -1,15 +1,24 @@
 name: main
 on:
-  push:
+  push: 
   pull_request:
 
 jobs:
   build:
     name: Update to Expo
     runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
     steps:
       - uses: actions/checkout@v2
       - name: Logging
         run: |
           echo "${{toJSON(github.event)}}"
-
+      - name: Github Head Ref
+        run: echo ${GITHUB_HEAD_REF}
+      - name: Github Ref
+        run: echo ${GITHUB_REF##*/}
+      - name: Branch
+        run: echo ${GITHUB_HEAD_REF-${GITHUB_REF##*/}}
+      - name: BRANCH_NAME
+        run: echo ${BRANCH_NAME}
