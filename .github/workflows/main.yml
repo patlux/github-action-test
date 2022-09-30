@@ -7,6 +7,8 @@ jobs:
   build:
     name: Update to Expo
     runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
     steps:
       - uses: actions/checkout@v2
       - name: Logging
@@ -18,3 +20,5 @@ jobs:
         run: echo ${GITHUB_REF##*/}
       - name: Branch
         run: echo ${GITHUB_HEAD_REF-${GITHUB_REF##*/}}
+      - name: BRANCH_NAME
+        run: echo ${BRANCH_NAME}
