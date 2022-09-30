@@ -17,4 +17,4 @@ jobs:
       - name: Github Ref
         run: echo ${GITHUB_REF##*/}
       - name: Branch
-        run: echo ${GITHUB_HEAD_REF:-$GITHUB_REF##*/}
+        run: echo ${GITHUB_HEAD_REF-${GITHUB_REF##*/}}
