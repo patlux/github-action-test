@@ -12,4 +12,5 @@ jobs:
       - name: Logging
         run: |
           echo "${{toJSON(github.event)}}"
-
+      - name: Test
+        run: echo $GITHUB_REF_NAME
