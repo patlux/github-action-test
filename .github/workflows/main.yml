@@ -13,4 +13,4 @@ jobs:
         run: |
           echo "${{toJSON(github.event)}}"
       - name: Test
-        run: echo $GITHUB_REF_NAME
+        run: echo ${{ github.event.head.ref }} 
