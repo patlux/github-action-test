@@ -13,8 +13,8 @@ jobs:
         run: |
           echo "${{toJSON(github.event)}}"
       - name: Github Head Ref
-        run: ${GITHUB_HEAD_REF}
+        run: echo ${GITHUB_HEAD_REF}
       - name: Github Ref
-        run: ${GITHUB_REF}
+        run: echo ${GITHUB_REF}
       - name: Branch
         run: echo ${GITHUB_HEAD_REF:-$GITHUB_REF}
