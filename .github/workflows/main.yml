@@ -1,14 +1,12 @@
 name: main
 on:
-  push:
+  push: 
   pull_request:
 
 jobs:
   build:
     name: Update to Expo
     runs-on: ubuntu-latest
-    outputs:
-      GIT_BRANCH: ${{ steps. }}
     steps:
       - uses: actions/checkout@v2
       - name: Logging
